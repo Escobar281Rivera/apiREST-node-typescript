@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { validationResult } from "express-validator";
 
+
  const validateResult = (req: Request, res: Response, next: NextFunction) => {
     try {
         validationResult(req).throw()
@@ -14,5 +15,6 @@ import { validationResult } from "express-validator";
         })
     }
 }
+
 
 export default validateResult
