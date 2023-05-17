@@ -1,4 +1,3 @@
-
 import jwt from 'jsonwebtoken'
 import { User } from '../models/User'
 
@@ -16,7 +15,5 @@ export const tokenSign = async (user: User) => {
   )
   return sign
 }
-
-
 
 
