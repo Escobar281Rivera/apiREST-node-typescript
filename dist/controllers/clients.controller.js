@@ -33,5 +33,59 @@ ClientController.listClient = (req, res) => __awaiter(void 0, void 0, void 0, fu
         });
     }
 });
+//byId
+ClientController.byIdClient = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = parseInt(req.params.id);
+    const repoClient = data_source_1.AppDataSource.getRepository(Client_1.Client);
+    try {
+        const client = yield repoClient.findOne({
+            where: { id },
+        });
+        return client
+            ? res.json({ ok: true, client })
+            : res.json({ ok: false, msg: `The id ${id} not found in data base` });
+    }
+    catch (e) {
+        return res.json({
+            ok: false,
+            msg: `Error => ${e}`
+        });
+    }
+});
+ClientController.createClient = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { name, last } = req.body;
+    const repoClient = data_source_1.AppDataSource.getRepository(Client_1.Client);
+    try {
+        const client = new Client_1.Client();
+        client.name = name,
+            client.last = last;
+        yield repoClient.save(client);
+        return res.json({
+            ok: true,
+            msg: 'Client was create'
+        });
+    }
+    catch (e) {
+        return res.json({
+            ok: true,
+            msg: `Error => ${e}`
+        });
+    }
+});
+//update
+ClientController.updateClient = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const id = parseInt(req.params.id);
+    const { name, last } = req.body;
+    const repoClient = data_source_1.AppDataSource.getRepository(Client_1.Client);
+    let client;
+    try {
+    }
+    catch (e) {
+        return res.json({
+            ok: true,
+            msg: `Error => ${e}`
+        });
+    }
+});
 exports.default = ClientController;
 //# sourceMappingURL=clients.controller.js.map
