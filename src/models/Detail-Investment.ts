@@ -19,5 +19,12 @@ export class DetailInvestment {
     endDate: Date
 
     @Column({default: true})
+
+
+
+
+
+
+
     state: boolean
 }

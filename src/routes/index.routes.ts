@@ -5,6 +5,7 @@ import { Router } from 'express'
 import rolRouter from './roles.routes'
 import userRouter from './users.routes'
 import authRouter from './auth.routes'
+import productRouter from './product.routes'
 
 dotenv.config()
 
@@ -16,6 +17,7 @@ const routes = Router()
 routes.use(`${URL}/rol`, rolRouter)
 routes.use(`${URL}/user`, userRouter)
 routes.use(`${URL}/auth`, authRouter)
+routes.use(`${URL}/product`, productRouter)
 
 
 

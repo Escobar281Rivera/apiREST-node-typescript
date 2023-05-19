@@ -14,6 +14,6 @@ export class Expenses{
     @Column()
     howMuch: number
 
-    @Column('datetime')
+    @Column({type:'datetime' ,default:() => 'CURRENT_TIMESTAMP'})
     date: Date
 }

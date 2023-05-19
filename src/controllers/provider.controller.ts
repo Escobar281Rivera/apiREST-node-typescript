@@ -104,7 +104,7 @@ class ProvidersController {
         
         try {
             const provider = await repoProvider.findOne({
-                where: { id }
+                where: { id , state: true}
             })
             if(!provider){
                 throw new Error('Donst exist in data base')
